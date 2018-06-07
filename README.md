@@ -10,18 +10,26 @@ but this works just fine for github and stackoverflow urls. Support for other ur
 ## Features
 
 ### Done
-* Open hardcoded urls
+1. Open hardcoded urls
+2. Read urls from dialogue box or commandbox itself
 
 ### TODO
 
-1. Read urls from dialogue box or commandbox itself
-2. Retain webview on switching tabs
-3. Try external loading css
-4. Open new url in same/other window
+3. Retain webview on switching tabs
+4. Try external loading css
+5. Open new url in same/other window
 
 ## Limitations / Issues
 
-* Can't open dynamic urls, pdfs, video urls
+* Can't open 
+* * pdfs
+* * Webpages with 
+* * * images
+* * * gifs
+* * * videos
+
+* Why ?
+* * This is primarily because no we can't do ajax calls here and xmlhttp request doesn't waits for all asynchronous calls to get finished.
 
 ## Requirements
 

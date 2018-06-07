@@ -22,37 +22,44 @@ function activate(context) {
     let disposable = vscode.commands.registerCommand('extension.sayHello', function() {
         // The code you place here will be executed every time your command is executed
 
-        let options = {
-            prompt: "Label: ",
-            placeHolder: "(placeholder)"
-        }
-
-        vscode.window.showInputBox(options).then(value => {
-            if (!value) return;
-            url = value;
-            // show the next dialog, etc.
-        });
 
         const panel = vscode.window.createWebviewPanel('tinyBrowser', url, vscode.ViewColumn.One, {
             enableScripts: true
         });
+        panel.webview.html = "Waiting for " + url;
+
 
         function httpGet(theUrl) {
 
             let xmlhttp = new XMLHttpRequest();
             xmlhttp.onreadystatechange = function() {
                 if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-                    panel.webview.html = xmlhttp.responseText;
-                    panel.title = (/<title>(.*?)<\/title>/m).exec(xmlhttp.responseText)[1];
+                    updateView(xmlhttp);
                 }
             }
             xmlhttp.open("GET", theUrl, false, "", "");
             xmlhttp.send("");
         }
 
-        panel.webview.html = "Waiting for " + url;
+        function updateView(xmlhttp) {
+            panel.webview.html = xmlhttp.responseText;
+            panel.title = (/<title>(.*?)<\/title>/m).exec(xmlhttp.responseText)[1];
 
-        httpGet(url);
+        }
+
+
+        let options = {
+            prompt: "Label: ",
+            placeHolder: "(placeholder)"
+        }
+
+        vscode.window.showInputBox(options).then(value => {
+            if (value) {
+                url = value;
+            }
+            // show the next dialog, etc.
+            httpGet(url);
+        });
 
         // Display a message box to the user
         // vscode.window.showInformationMessage('Hello World!');
