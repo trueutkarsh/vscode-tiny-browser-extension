@@ -11,13 +11,17 @@
         "Other"
     ],
     "activationEvents": [
-        "onCommand:extension.sayHello"
+        "onCommand:extension.openLinkHere",
+        "onCommand:extension.openLinkNewWindow"
     ],
     "main": "./extension",
     "contributes": {
         "commands": [{
-            "command": "extension.sayHello",
-            "title": "Hello World"
+            "command": "extension.openLinkHere",
+            "title": "tiny-browser: Open Link Here"
+        }, {
+            "command": "extension.openLinkNewWindow",
+            "title": "tiny-browser: Open Link in New Window "
         }]
     },
     "scripts": {

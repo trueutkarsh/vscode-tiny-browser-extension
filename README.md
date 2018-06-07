@@ -7,62 +7,67 @@ it is suppose to stay that way (practically I don't even know how to do it.)
 Through this extension we aim to open urls directly in vscode windows to reduce the hustle. Clearly we can't open dyanmic pages yet, 
 but this works just fine for github and stackoverflow urls. Support for other urls might be added in future.
 
+**Current Version** : 1.0.0
+
 ## Features
 
 ### Done
 1. Open hardcoded urls
 2. Read urls from dialogue box or commandbox itself
+3. Retain webview on switching tabs
+4. Open new url in same/other window
 
 ### TODO
 
-3. Retain webview on switching tabs
-4. Try external loading css
-5. Open new url in same/other window
+5. Try external loading css
+6. Try speeding up webviewloading / File an issue 
 
 ## Limitations / Issues
 
-* Can't open 
+* *Can't open*
 * * pdfs
 * * Webpages with 
 * * * images
 * * * gifs
 * * * videos
-
-* Why ?
+* *Why ?*
 * * This is primarily because no we can't do ajax calls here and xmlhttp request doesn't waits for all asynchronous calls to get finished.
-
+* * Might fix this in future
+* *Webview Loading is Slow*
+* *Why ?*
+* * Can't figure out right now. Will file an issue soon.
 ## Requirements
 
 Nothing special.
 
-## Extension Settings
+<!-- ## Extension Settings
 
 Will update this late
-<!-- Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
 
 For example:
 
 This extension contributes the following settings:
 
 * `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something -->
+* `myExtension.thing`: set to `blah` to do something
 
-<!-- ## Known Issues
+## Known Issues
 
 * first
 * second
-* third -->
-
+* third
+ -->
 
 ## Release Notes
 
-Still in development phase.
-<!-- 
+
 ### 1.0.0
 
-Initial release of tiny-browser
+Initial release of tiny-browser.
+TODO #1-4 are done and tiny-broswer is ready to be used.
 
-### 1.0.1
+<!-- ### 1.0.1
 
 Fixed issue #.
 
